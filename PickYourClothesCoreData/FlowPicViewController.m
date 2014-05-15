@@ -157,7 +157,7 @@
         //[detail setImage:_editcloth.image];
         detail.cloth=_editcloth;
         modal.cloth=_editcloth;
-        detail.frame=CGRectMake(40, 150, 240, 300);
+        detail.frame=CGRectMake(40, 100, 240, 300);
         
         
         [detail awakeFromNib];
@@ -197,7 +197,7 @@
    
     showDetailview *detail=[[showDetailview alloc] init];
     [detail setImage:_image];
-    detail.frame=CGRectMake(40, 150, 240, 300);
+    detail.frame=CGRectMake(40, 100, 240, 250);
    
     
     [detail awakeFromNib];

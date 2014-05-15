@@ -262,7 +262,7 @@
                                 </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3lZ-7D-pcY">
-                                <rect key="frame" x="20" y="98" width="280" height="264"/>
+                                <rect key="frame" x="20" y="127" width="280" height="264"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -282,9 +282,9 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Aia-tp-jxd" secondAttribute="trailing" constant="-20" id="FXZ-0G-FmN"/>
-                                                <constraint firstItem="Aia-tp-jxd" firstAttribute="leading" secondItem="YpT-YJ-VxF" secondAttribute="leading" constant="20" symbolic="YES" id="RKu-LJ-5i9"/>
-                                                <constraint firstItem="Aia-tp-jxd" firstAttribute="centerY" secondItem="YpT-YJ-VxF" secondAttribute="centerY" id="kpR-T7-FYq"/>
+                                                <constraint firstAttribute="trailing" secondItem="Aia-tp-jxd" secondAttribute="trailing" constant="-20" id="91U-p4-W7u"/>
+                                                <constraint firstItem="Aia-tp-jxd" firstAttribute="centerY" secondItem="YpT-YJ-VxF" secondAttribute="centerY" id="ASh-iz-I1N"/>
+                                                <constraint firstItem="Aia-tp-jxd" firstAttribute="leading" secondItem="YpT-YJ-VxF" secondAttribute="leading" constant="20" symbolic="YES" id="iPV-fl-0RD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -298,7 +298,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3E-Fb-svz">
-                                <rect key="frame" x="20" y="405" width="280" height="30"/>
+                                <rect key="frame" x="20" y="414" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="DONE">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -308,10 +308,10 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TK-vC-fnG">
-                                <rect key="frame" x="20" y="98" width="280" height="52"/>
+                                <rect key="frame" x="20" y="83" width="280" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="tzf-Jh-wog"/>
+                                    <constraint firstAttribute="height" constant="36" id="TQg-X2-ovG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -320,19 +320,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6TK-vC-fnG" firstAttribute="trailing" secondItem="3lZ-7D-pcY" secondAttribute="trailing" id="0Uy-po-4zG"/>
-                            <constraint firstItem="w3E-Fb-svz" firstAttribute="top" secondItem="3lZ-7D-pcY" secondAttribute="bottom" constant="43" id="7CL-qQ-R6r"/>
-                            <constraint firstAttribute="trailing" secondItem="KQg-2J-lcy" secondAttribute="trailing" constant="20" symbolic="YES" id="M82-g2-nea"/>
-                            <constraint firstItem="KQg-2J-lcy" firstAttribute="leading" secondItem="1PE-Or-44F" secondAttribute="leading" constant="20" symbolic="YES" id="WF2-Kf-TQE"/>
-                            <constraint firstItem="KQg-2J-lcy" firstAttribute="trailing" secondItem="6TK-vC-fnG" secondAttribute="trailing" id="aD3-kb-4zZ"/>
-                            <constraint firstItem="6TK-vC-fnG" firstAttribute="top" secondItem="3lZ-7D-pcY" secondAttribute="top" id="bW6-po-Fbk"/>
-                            <constraint firstItem="6TK-vC-fnG" firstAttribute="leading" secondItem="3lZ-7D-pcY" secondAttribute="leading" id="dfb-NO-7Ev"/>
-                            <constraint firstItem="3lZ-7D-pcY" firstAttribute="top" secondItem="KQg-2J-lcy" secondAttribute="bottom" constant="30" id="gMu-Ju-7Qx"/>
-                            <constraint firstItem="w3E-Fb-svz" firstAttribute="leading" secondItem="3lZ-7D-pcY" secondAttribute="leading" id="lBk-mM-FPz"/>
-                            <constraint firstItem="6TK-vC-fnG" firstAttribute="leading" secondItem="KQg-2J-lcy" secondAttribute="leading" id="rnr-NY-wqg"/>
-                            <constraint firstItem="w3E-Fb-svz" firstAttribute="trailing" secondItem="6TK-vC-fnG" secondAttribute="trailing" id="tjI-ZJ-SqY"/>
-                            <constraint firstItem="3yB-PU-HIA" firstAttribute="top" secondItem="w3E-Fb-svz" secondAttribute="bottom" constant="45" id="uWa-eV-akN"/>
-                            <constraint firstItem="KQg-2J-lcy" firstAttribute="top" secondItem="xz8-bD-1Zc" secondAttribute="bottom" constant="18" id="ytZ-qr-97e"/>
+                            <constraint firstItem="w3E-Fb-svz" firstAttribute="top" secondItem="3lZ-7D-pcY" secondAttribute="bottom" constant="23" id="42p-yY-b55"/>
+                            <constraint firstItem="3lZ-7D-pcY" firstAttribute="leading" secondItem="6TK-vC-fnG" secondAttribute="leading" id="BYH-g4-SuE"/>
+                            <constraint firstItem="6TK-vC-fnG" firstAttribute="trailing" secondItem="3lZ-7D-pcY" secondAttribute="trailing" id="Bhr-hl-KTL"/>
+                            <constraint firstItem="6TK-vC-fnG" firstAttribute="trailing" secondItem="KQg-2J-lcy" secondAttribute="trailing" id="F0b-X0-orr"/>
+                            <constraint firstItem="3yB-PU-HIA" firstAttribute="top" secondItem="w3E-Fb-svz" secondAttribute="bottom" constant="36" id="LFm-0k-pbC"/>
+                            <constraint firstItem="3lZ-7D-pcY" firstAttribute="trailing" secondItem="w3E-Fb-svz" secondAttribute="trailing" id="ND9-BZ-hLX"/>
+                            <constraint firstItem="3lZ-7D-pcY" firstAttribute="top" secondItem="6TK-vC-fnG" secondAttribute="bottom" constant="8" symbolic="YES" id="OI3-sK-azV"/>
+                            <constraint firstItem="KQg-2J-lcy" firstAttribute="leading" secondItem="1PE-Or-44F" secondAttribute="leading" constant="20" symbolic="YES" id="acD-y3-iec"/>
+                            <constraint firstItem="w3E-Fb-svz" firstAttribute="leading" secondItem="3lZ-7D-pcY" secondAttribute="leading" id="gUy-Fy-RDX"/>
+                            <constraint firstItem="KQg-2J-lcy" firstAttribute="top" secondItem="xz8-bD-1Zc" secondAttribute="bottom" constant="18" id="gkd-fL-33t"/>
+                            <constraint firstItem="6TK-vC-fnG" firstAttribute="top" secondItem="KQg-2J-lcy" secondAttribute="bottom" constant="15" id="jOi-tK-aTa"/>
+                            <constraint firstItem="6TK-vC-fnG" firstAttribute="leading" secondItem="KQg-2J-lcy" secondAttribute="leading" id="tRo-cQ-0S6"/>
+                            <constraint firstAttribute="trailing" secondItem="KQg-2J-lcy" secondAttribute="trailing" constant="20" symbolic="YES" id="zga-Np-4YM"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1819,7 +1819,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqk-nS-O5q">
-                                <rect key="frame" x="20" y="518" width="280" height="30"/>
+                                <rect key="frame" x="20" y="437" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2318,7 +2318,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="QLi-4g-mb4"/>
-        <segue reference="3a7-71-AE9"/>
+        <segue reference="ct9-87-z77"/>
         <segue reference="zDO-0n-PgW"/>
     </inferredMetricsTieBreakers>
 </document>
