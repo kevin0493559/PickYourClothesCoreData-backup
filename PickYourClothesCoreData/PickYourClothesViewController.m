@@ -160,7 +160,7 @@
 
 - (IBAction)startPick:(id)sender {
     if([self.gooutPurpose.text length]==0){
-           UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Oops" message:@"Please enter a purpose" delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
+           UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Oops" message:@"Please Choose A Purpose ABOVE." delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
         [alert show];
     }
 }
@@ -252,7 +252,7 @@
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
     pageControl = [[UIPageControl alloc]init];
-    pageControl.frame = CGRectMake(20, self.view.frame.size.height/4.8+self.view.frame.size.height/2.4, 280, 36);
+    pageControl.frame = CGRectMake(20, self.view.frame.size.height/4.8+self.view.frame.size.height/2.4-10, 280, 36);
     pageControl.currentPage = currnetPage;
     pageControl.numberOfPages = numberOfPages;
     //clothesImage.image=nil;
