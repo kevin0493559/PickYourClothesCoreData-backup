@@ -9,6 +9,7 @@
 #import "EditDetailTableViewController.h"
 @interface EditDetailTableViewController ()
 @property (strong,nonatomic) Clothes *clothedit;
+@property (nonatomic)NSNumber *originalUsetime;
 @end
 
 @implementation EditDetailTableViewController
@@ -29,6 +30,7 @@
 
         
         _clothedit=cloth;
+        _originalUsetime=_clothedit.useTime;
         _name.text=_clothedit.name;
         _brand.text=_clothedit.brand;
         NSData *image=_clothedit.image;
@@ -170,10 +172,10 @@
     UISwitch *swith=(UISwitch *)sender;
     BOOL buttonison=[swith isOn];
     if (buttonison) {
-        _clothedit.landry=[NSNumber numberWithBool:YES];
+        _clothedit.useTime=[NSNumber numberWithInt:0];
         
     }else{
-        _clothedit.landry=[NSNumber numberWithBool:NO];
+        _clothedit.useTime=_originalUsetime;
     }
 }
 - (IBAction)cancle:(id)sender {
