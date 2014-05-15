@@ -28,17 +28,15 @@
 @property (nonatomic) BOOL lackOfShoes;
 @property (nonatomic) BOOL lackOfUmbrellas;
 @property (nonatomic) BOOL lackOfGloves;
-@property (nonatomic) NSString *shouldPickClothes;
-@property (nonatomic) NSString *shouldPickPants;
-@property (nonatomic) NSString *shouldPickShoes;
+@property (nonatomic) NSArray *shouldPickClothes;
+@property (nonatomic) NSArray *shouldPickPants;
+@property (nonatomic) NSArray *shouldPickShoes;
 @property (nonatomic) Clothes *cloth;
 @property (nonatomic) Clothes *pant;
 @property (nonatomic) Clothes *shoes;
 @property (strong,nonatomic) NSString *mailId;
 @property (strong,nonatomic) People *peo;
-//@property (nonatomic, strong) NSManagedObjectID *clothID;
-//@property (nonatomic, strong) NSManagedObjectID *pantID;
-//@property (nonatomic, strong) NSManagedObjectID *shoeID;
+@property (nonatomic) BOOL needPant;
 @end
 
 @implementation MainFunctionViewController
@@ -82,33 +80,29 @@
     
     
 
-   //    NSLog(@"current is %i",_currentTemperature);
-//    _shouldPickClothes = [[NSString alloc]init];
-//    _shouldPickPants = [[NSString alloc]init];
-//    _shouldPickShoes =[[NSString alloc]init];
     
     if([self.purpose isEqualToString:@"Formal Occasion"]){
-        _shouldPickClothes=@"Suit";_shouldPickPants=@"Suit";_shouldPickShoes=@"Suit";
+        _shouldPickClothes=[NSArray arrayWithObjects:@"Suit", nil];_shouldPickPants=[NSArray arrayWithObjects:@"Suit", nil];_shouldPickShoes=[NSArray arrayWithObjects:@"Suit", nil];
     }
     if([self.purpose isEqualToString:@"Exercise,Gym,Sports"]){
        if (_currentTemperature<50) {
-           _shouldPickClothes = @"Sports Long"; _shouldPickPants = @"Sports Long";_shouldPickShoes=@"Exercise";
+           _shouldPickClothes =[NSArray arrayWithObjects:@"Sports Long", nil];_shouldPickPants = [NSArray arrayWithObjects:@"Sports Long", nil];_shouldPickShoes=[NSArray arrayWithObjects:@"Exercise", nil];
        }
        else{
-           _shouldPickClothes =@"Sports Short"; _shouldPickPants = @"Sports Short";_shouldPickShoes=@"Exercise";
+           _shouldPickClothes =[NSArray arrayWithObjects:@"Sports Short", nil]; _shouldPickPants = [NSArray arrayWithObjects:@"Sports Short", nil];_shouldPickShoes=[NSArray arrayWithObjects:@"Exercise", nil];
        }
     }
     if([self.purpose isEqualToString:@"Others"]){
         if (_currentTemperature<50) {
-            _shouldPickClothes = @"Jacket"; _shouldPickPants = @"Pants Long";_shouldPickShoes=@"Warm Shoes";
+            _shouldPickClothes =[NSArray arrayWithObjects:@"Jacket", @"Fleece",@"Down Coat",nil] ; _shouldPickPants = [NSArray arrayWithObjects:@"Pants Long", nil];_shouldPickShoes=[NSArray arrayWithObjects:@"Warm Shoes", @"Exercise",@"High Heel",nil];
         }
         else if(_currentTemperature<60){
-            _shouldPickClothes =@"Sweater"; _shouldPickPants = @"Pants Long";_shouldPickShoes=@"Warm Shoes";
+            _shouldPickClothes =[NSArray arrayWithObjects:@"Sweater",@"Fleece", nil] ; _shouldPickPants = [NSArray arrayWithObjects:@"Pants Long", nil];_shouldPickShoes=[NSArray arrayWithObjects:@"Warm Shoes", @"Exercise",@"High Heel",nil];
         }
         else if (_currentTemperature<70){
-            _shouldPickClothes =@"Shirt"; _shouldPickPants = @"Pants Middle";_shouldPickShoes=@"Plimsolls";
+            _shouldPickClothes =[NSArray arrayWithObjects:@"Shirt", @"Dress",nil] ; _shouldPickPants = [NSArray arrayWithObjects:@"Pants Middle", nil];_shouldPickShoes=[NSArray arrayWithObjects:@"Plimsolls",@"Exercise",@"High Heel", nil];
         }else{
-            _shouldPickClothes =@"T-shirt"; _shouldPickPants = @"Pants Short";_shouldPickShoes=@"Sandal";
+            _shouldPickClothes =[NSArray arrayWithObjects: @"T-shirt", @"Sun-top",@"Chiffon",@"Skirt",nil]; _shouldPickPants = [NSArray arrayWithObjects:@"Pants Short", nil];_shouldPickShoes=[NSArray arrayWithObjects:@"Sandal",@"Exercise", @"High Heel",nil];
         }
     }
     
@@ -117,14 +111,16 @@
     _shoesFilterArray=[[NSMutableArray alloc]initWithCapacity:50];
     _umbrellaFilterArray=[[NSMutableArray alloc]initWithCapacity:50];
     _gloveFilterArray=[[NSMutableArray alloc]initWithCapacity:50];
+    
+    
         for(Clothes *cloth in _clothesArray){
-            if ([cloth.type isEqualToString:_shouldPickClothes]&&[cloth.kindOf isEqualToString:@"Jacketing"]) {
+            if ([_shouldPickClothes containsObject:cloth.type]&&[cloth.kindOf isEqualToString:@"Jacketing"]) {
                 [_clothesFilterArray addObject:cloth];
             }
-            if ([cloth.type isEqualToString:_shouldPickPants]&&[cloth.kindOf isEqualToString:@"Pants"]) {
+            if ([_shouldPickPants containsObject:cloth.type]&&[cloth.kindOf isEqualToString:@"Pants"]) {
                 [_pantsFilterArray addObject:cloth];
             }
-            if ([cloth.type isEqualToString:_shouldPickShoes]&&[cloth.kindOf isEqualToString:@"Shoes"]) {
+            if ([_shouldPickShoes containsObject:cloth.type]&&[cloth.kindOf isEqualToString:@"Shoes"]) {
                 [_shoesFilterArray addObject:cloth];
             }
             if ([cloth.kindOf isEqualToString:@"Umbrella"]) {
@@ -153,7 +149,6 @@
     NSMutableArray *initialArray2=[[NSMutableArray alloc]init];
     for(Clothes *cloth in initialArray){
         if ([cloth.useTime intValue]<5) {
-            //NSLog(@"this is %i",[cloth.useTime intValue]);
            [initialArray2 addObject:cloth];
         }
     }
@@ -181,6 +176,16 @@
         _cloth=clothesFilterArray2[indexOfClothes];
         NSData *clothesImageData= _cloth.image;
         [self.PickedClothes setImage:[UIImage imageWithData:clothesImageData] forState:UIControlStateNormal] ;
+        if ((!([_cloth.type isEqualToString:@"Dress"]||[_cloth.type isEqualToString:@"Skirt"]))&&!self.PickedPants.enabled) {
+            self.PickedPants.enabled=YES;
+            [self showSelectionOfPants];
+        }
+        if ([_cloth.type isEqualToString:@"Dress"]||[_cloth.type isEqualToString:@"Skirt"]) {
+            [self.PickedPants setImage:nil forState:UIControlStateNormal];
+            [self.PickedPants setTitle:@"NO NEED" forState:UIControlStateNormal];
+            [self.PickedPants setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            self.PickedPants.enabled=NO;
+        }
     }else{
         self.lackOfClothes=YES;
         self.PickedClothes.enabled=NO;
@@ -194,6 +199,7 @@
         self.PickedPants.enabled=YES;
         self.lackOfPants=NO;
         if([self.purpose isEqualToString:@"Formal Occasion"]){
+            _needPant=YES;
             NSMutableArray *sameColorPants=[[NSMutableArray alloc]init];
             for(Clothes *possibleClothes in pantsFilterArray2){
                 if ([possibleClothes.color isEqualToString:_cloth.color]) {
@@ -202,12 +208,27 @@
             }
             indexOfPants=arc4random() % [sameColorPants count];
             _pant=sameColorPants[indexOfPants];
-        }else{
+         }else if([self.purpose isEqualToString:@"Others"]){
+            if ([_cloth.type isEqualToString:@"Dress"]||[_cloth.type isEqualToString:@"Skirt"]) {
+                _needPant=NO;
+                [self.PickedPants setImage:nil forState:UIControlStateNormal];
+                [self.PickedPants setTitle:@"NO NEED" forState:UIControlStateNormal];
+                [self.PickedPants setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                self.PickedPants.enabled=NO;
+            }else{
+             _needPant=YES;
+             indexOfPants =arc4random() % [pantsFilterArray2 count];
+             _pant=pantsFilterArray2[indexOfPants];
+            }
+         }else{
+             _needPant=YES;
             indexOfPants =arc4random() % [pantsFilterArray2 count];
             _pant=pantsFilterArray2[indexOfPants];
         }
-        NSData *pantsImageData=_pant.image;
-        [self.PickedPants setImage:[UIImage imageWithData:pantsImageData] forState:UIControlStateNormal];
+        if(_needPant){
+            NSData *pantsImageData=_pant.image;
+            [self.PickedPants setImage:[UIImage imageWithData:pantsImageData] forState:UIControlStateNormal];
+        }
     }else{
         self.lackOfPants=YES;
         self.PickedPants.enabled=NO;
@@ -276,11 +297,21 @@
         if (_needUmbrella) {
             [self showSelectionOfUmbrella];
         }else{
+             self.PickedUmbrella.enabled=YES;
+            [self.PickedUmbrella setImage:nil forState:UIControlStateNormal];
+            [self.PickedUmbrella setTitle:@"NO NEED" forState:UIControlStateNormal];
+            [self.PickedUmbrella setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+
             self.PickedUmbrella.enabled=NO;
         }
         if (_needGlove) {
             [self showSelectionOfGlove];
         }else{
+             self.PickedGlove.enabled=YES;
+            [self.PickedGlove setImage:nil forState:UIControlStateNormal];
+            [self.PickedGlove setTitle:@"NO NEED" forState:UIControlStateNormal];
+            [self.PickedGlove setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+
             self.PickedGlove.enabled=NO;
         }
     }else{
@@ -322,7 +353,6 @@
     _imagehead.layer.backgroundColor=(__bridge CGColorRef)([UIColor grayColor]);
     _imagehead.layer.masksToBounds=YES;
     
-    NSLog(@"%@",self.purpose);
    // self.tabBarController.tabBar.hidden=NO;
   //  self.navigationController.navigationBar.alpha=1;
     _cnt=0;
@@ -353,13 +383,13 @@
     [self showAllSelection];
     if (self.lackOfClothes || (self.lackOfGloves && _needGlove) || self.lackOfPants || self.lackOfShoes || (self.lackOfUmbrellas && _needUmbrella)) {
         NSString *clothes=[[NSString alloc]init];
-        if(self.lackOfClothes) {clothes=[_shouldPickClothes stringByAppendingString:@" Clothes,"];}else{ clothes=@"";}
+        if(self.lackOfClothes) {clothes=@" Suitable Clothes,";}else{ clothes=@"";}
         NSString *gloves=[[NSString alloc]init];
         if(self.lackOfGloves && _needGlove) {gloves=@"gloves,";}else{ gloves=@"";}
         NSString *pants=[[NSString alloc]init];
-        if(self.lackOfPants ) {pants=[_shouldPickPants stringByAppendingString:@" Pants,"];}else{ pants=@"";}
+        if(self.lackOfPants ) {pants=@" Suitable Pants,";}else{ pants=@"";}
         NSString *shoe=[[NSString alloc]init];
-        if(self.lackOfShoes) {shoe=[_shouldPickShoes stringByAppendingString:@" Shoes  "];}else{ shoe=@"";}
+        if(self.lackOfShoes) {shoe=@" Suitable Shoes  ";}else{ shoe=@"";}
         NSString *umbrellas=[[NSString alloc]init];
         if(self.lackOfUmbrellas && _needUmbrella) {umbrellas=@"umbrellas";}else{ umbrellas=@"";}
         NSString *errormessage=[[NSString alloc]initWithFormat:@"%@%@%@%@%@",clothes,gloves,pants,shoe,umbrellas];
@@ -411,7 +441,6 @@
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"%i",buttonIndex);
     switch (buttonIndex) {
         case 0:
             break;
@@ -454,7 +483,6 @@
         NSMutableArray *dataArray=[[NSMutableArray alloc] init];
         dataArray =[NSKeyedUnarchiver unarchiveObjectWithFile:p];
         if (dataArray!=nil) {
-            NSLog(@"%@",[dataArray objectAtIndex:0]);
             _mailId=[dataArray objectAtIndex:0];
         }
     }

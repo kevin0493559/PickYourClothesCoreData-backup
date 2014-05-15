@@ -68,7 +68,6 @@ numberOfRowsInComponent:(NSInteger)component
     NSString *resultString = [[NSString alloc] initWithFormat:
                               @"%@.jpg",_kindOf[row]];
     _deci=_kindOf[row];
-    NSLog(@"%@",resultString);
     _imageout.image=[UIImage imageNamed:resultString];
     
     
@@ -98,7 +97,6 @@ numberOfRowsInComponent:(NSInteger)component
 }
 
 - (IBAction)Select:(id)sender {
-    NSLog(@"%@",_deci);
     if ([_deci isEqual:@"Select"]||_deci==nil) {
 //        
 //    UIAlertView *deci=[[UIAlertView alloc]initWithTitle:@"Attention" message:@"Please,Select one kind" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];

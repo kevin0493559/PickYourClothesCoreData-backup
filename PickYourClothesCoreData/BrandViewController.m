@@ -73,7 +73,7 @@
     return  [_brands count];
 }
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{ NSLog(@"%i",[_brands count]);
+{
     brandTableViewCell *cell=[self.tableselect dequeueReusableCellWithIdentifier:@"BrandCell" forIndexPath:indexPath];
     cell.brandput.text=[_brands objectAtIndex:[indexPath row]];
     return cell;
@@ -93,8 +93,6 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _labelbrand.text=[_brands objectAtIndex:[indexPath row]];
-    
-    NSLog(@"%i%@",[indexPath row],_inputtext.text);
 }
 #pragma button
 - (IBAction)done:(id)sender {

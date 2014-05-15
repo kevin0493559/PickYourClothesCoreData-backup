@@ -107,7 +107,7 @@
 }
 #pragma delegate
 -(void) changeImage:(NSData *)image
-{  NSLog(@"11");
+{
     self.image.image=[UIImage imageWithData:image];
     _clothedit.image=image;
     
@@ -170,7 +170,6 @@
     UISwitch *swith=(UISwitch *)sender;
     BOOL buttonison=[swith isOn];
     if (buttonison) {
-        NSLog(@"landey");
         _clothedit.landry=[NSNumber numberWithBool:YES];
         
     }else{

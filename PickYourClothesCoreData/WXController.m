@@ -123,7 +123,6 @@
       deliverOn:RACScheduler.mainThreadScheduler]
      subscribeNext:^(WXCondition *newCondition) {
          self.temperatureLabel.text = [NSString stringWithFormat:@"%.0f°",newCondition.temperature.floatValue];
-         NSLog(@"current is %i",newCondition.temperature.intValue);
          self.conditionsLabel.text = [newCondition.condition capitalizedString];
          self.cityLabel.text = [newCondition.locationName capitalizedString];
          self.iconView.image = [UIImage imageNamed:[newCondition imageName]];
@@ -268,7 +267,6 @@
     NSDateFormatter *hourlyFormatter=[[NSDateFormatter alloc]init];
     [hourlyFormatter setDateFormat:@"h a"];
     cell.textLabel.text = [hourlyFormatter stringFromDate:weather.date];
-  //  NSLog(@"it is %@",[_hourlyFormatter stringFromDate:weather.date]);
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%.0f°",weather.temperature.floatValue];
     cell.imageView.image = [UIImage imageNamed:[weather imageName]];
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;

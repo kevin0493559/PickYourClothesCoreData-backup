@@ -109,7 +109,6 @@
     if(scrollView.tag==1)
     {
         NSInteger index = fabs(self.contentOffset.x) / self.frame.size.width;
-        //NSLog(@"%d",index);
         [_page setCurrentPage:index];
         
     }
@@ -149,7 +148,6 @@
         UIImage *fullCheckmark = [UIImage imageNamed:@"checked.png"];
         UIImageView *checkmarkView = [self.checkmarkImageViews objectAtIndex:index];
         
-        NSLog(@"index%lu",(unsigned long)index);
         if (_whetherPick) {
             Clothes *cloth1=[_lastclothes objectAtIndex:index];
             if(_count==0){
@@ -157,7 +155,6 @@
             }
             cloth1.useTime=[NSNumber numberWithInt:0];
             _count++;
-            NSLog(@"usetime is %i",[cloth1.useTime intValue]);
         }else{
             Clothes *cloth2=[_clothes objectAtIndex:index];
             if(_count==0){

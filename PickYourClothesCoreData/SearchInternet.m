@@ -37,7 +37,6 @@
 //    [self buttonPress:nil];
     [textField resignFirstResponder];
     NSString *webString=[[NSString alloc]initWithFormat:@"http://www.amazon.com/gp/aw/d/B00IOVF502/ref=mp_s_a_1_1?qid=1396818861&sr=8-1&pi=SY200_QL40#"];
-    NSLog(@"%@",webString);
     
     [self loadWebPageWithString:webString];
     // Do any additional setup after loading the view.
@@ -79,7 +78,6 @@
 - (IBAction)buttonPress:(id)sender {
     [textField resignFirstResponder];
     NSString *webString=[[NSString alloc]initWithFormat:@"http://%@",textField.text];
-    NSLog(@"%@",webString);
     
     [self loadWebPageWithString:webString];
 

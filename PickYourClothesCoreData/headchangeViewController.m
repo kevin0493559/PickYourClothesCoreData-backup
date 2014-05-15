@@ -83,7 +83,6 @@
         NSMutableArray *dataArray=[[NSMutableArray alloc] init];
         dataArray =[NSKeyedUnarchiver unarchiveObjectWithFile:p];
         if (dataArray!=nil) {
-            NSLog(@"%@",[dataArray objectAtIndex:0]);
             _mailId=[dataArray objectAtIndex:0];
         }
     }
@@ -105,7 +104,6 @@
 
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    // NSLog(@"Action Sheet Button Index: %d",buttonIndex);
     if (buttonIndex == 0) {
         
         if ([UIImagePickerController isSourceTypeAvailable:

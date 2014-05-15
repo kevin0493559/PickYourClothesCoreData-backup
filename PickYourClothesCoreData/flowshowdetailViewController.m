@@ -66,31 +66,6 @@
 //    [select setActionSheetStyle:UIActionSheetStyleBlackOpaque];
 //    [select showInView:self.view];
 }
-//-(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-//{
-//    switch (buttonIndex) {
-//        case 0:
-//            _cloth.onUse=[NSNumber numberWithBool:YES];
-//            [self savecloth];
-//        [self performSegueWithIdentifier:@"backto" sender:self];
-//         
-//            
-//            NSLog(@"hh");
-//           
-//            break;
-//            
-//        case 1:
-//            _cloth.onUse=[NSNumber numberWithBool:NO];
-//            [self savecloth];
-//            break;
-//        case  2:
-//            if ([kAppDelegate.managedObjectContext hasChanges]) {
-//                [kAppDelegate.managedObjectContext rollback];
-//                }
-//            [self performSegueWithIdentifier:@"backto" sender:self];
-//            break;
-//    }
-//}
 -(void) savecloth
 {
     NSManagedObjectContext *context=kAppDelegate.managedObjectContext;

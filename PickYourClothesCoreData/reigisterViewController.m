@@ -35,6 +35,7 @@
     _imageview.layer.cornerRadius=8;
     _imageview.frame=_viewback.frame;
     self.imageview.layer.cornerRadius=50;
+    _age.keyboardType=UIKeyboardTypeNumberPad;
     UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handletap)];
     tap.numberOfTapsRequired=1;
     tap.delegate=self;
@@ -60,7 +61,6 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    // NSLog(@"Action Sheet Button Index: %d",buttonIndex);
     if (buttonIndex == 0) {
         
         if ([UIImagePickerController isSourceTypeAvailable:
@@ -207,11 +207,13 @@ finishedSavingWithError:(NSError *)error
     if([_name isFirstResponder]&& [touch view]!=_name){
         [_name resignFirstResponder];
     }
+    if ([_age isFirstResponder]&&[touch view]!=_age) {
+        [_age resignFirstResponder];
+    }
     [super touchesBegan:touches withEvent:event];
 }
 -(void) textViewDidBeginEditing:(UITextView *)textView
 {
-    NSLog(@"111");
     textView.text=nil;
     CGRect frame = textView.frame;
     int offset = frame.origin.y + 80 - (self.view.frame.size.height - 216.0);

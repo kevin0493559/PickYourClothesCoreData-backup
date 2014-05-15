@@ -53,7 +53,6 @@
 
 
 - (IBAction)changeStyle:(id)sender {
-    NSLog(@"%ld",(long)_segments.selectedSegmentIndex);
     switch (_segments.selectedSegmentIndex) {
         case 0:
             self.scrollView.whetherPick=NO;

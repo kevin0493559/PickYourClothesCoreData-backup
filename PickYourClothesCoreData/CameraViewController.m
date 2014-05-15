@@ -16,6 +16,7 @@
 @property (strong,nonatomic) NSString *mailId;
 @property (strong,nonatomic) People *peo;
 @property (strong,nonatomic) NSDate *date;
+@property (nonatomic)BOOL needType;
 @end
 
 @implementation CameraViewController
@@ -49,9 +50,7 @@
     //set imageview;
     [self fetchpeople];
     
-    _date=[NSDate date];
-    NSLog(@"nldate%@",_date);
-    
+    _date=[NSDate date];    
     _brandbutton.layer.cornerRadius=8;
     _brandbutton.layer.borderColor=(__bridge CGColorRef)([UIColor grayColor]);
     _brandbutton.layer.borderWidth=2;
@@ -75,22 +74,24 @@
     starRatingView.delegate = self;
     self.ratestar.backgroundColor=[UIColor clearColor];
     [self.ratestar addSubview:starRatingView];
-    
-    NSArray *colorItem=[NSArray arrayWithObjects:@"Black",@"White",@"Red",@"Green",@"Yellow",@"Blue",@"Brown",@"Purple",@"Orange",@"Cyan",@"Pink", nil];
+    self.needType=YES;
+    NSArray *colorItem=[NSArray arrayWithObjects:@"Black",@"White",@"Red",@"Green",@"Yellow",@"Blue",@"Brown",@"Purple",@"Orange",@"Cyan",@"Pink",@"Mixed", nil];
     self.ColorSelection.items=colorItem;
     if ([self.entitycloth isEqualToString:@"Jacketing"]) {
-        NSArray *items=[NSArray arrayWithObjects:@"T-shirt", @"Shirt",@"Sweater", @"Jacket",@"Sports Long",@"Sports Short",@"Suit",@"Dress",nil];
+        NSArray *items=[NSArray arrayWithObjects:@"Sports Long",@"Sports Short",@"T-shirt",@"Sun-top",@"Chiffon",@"Skirt", @"Shirt",@"Dress",@"Sweater", @"Jacket",@"Fleece",@"Down Coat",@"Suit",nil];
         self.TypeSelection.items=items;}
     if ([self.entitycloth isEqualToString:@"Pants"]) {
-        NSArray *items=[NSArray arrayWithObjects:@"Pants Long",@"Pants Middle",@"Pants Short",@"Suit", @"Sports Long",@"Sports Short",@"Skirt",nil];
+        NSArray *items=[NSArray arrayWithObjects:@"Sports Long",@"Sports Short",@"Pants Long",@"Pants Middle",@"Pants Short",@"Suit", nil];
         self.TypeSelection.items=items;}
     if ([self.entitycloth isEqualToString:@"Shoes"]) {
-        NSArray *items=[NSArray arrayWithObjects:@"Exercise",@"Suit", @"Sandal",@"Plimsolls",@"Warm Shoes",@"High Heel",nil];
+        NSArray *items=[NSArray arrayWithObjects:@"Exercise", @"Sandal",@"Plimsolls",@"Warm Shoes",@"High Heel",@"Suit",nil];
         self.TypeSelection.items=items;}
-    if([self.entitycloth isEqualToString:@"Umbrella"]||[self.entitycloth isEqualToString:@"Glove"]){
+    if([self.entitycloth isEqualToString:@"Umbrella"]||[self.entitycloth isEqualToString:@"Glove"]||[self.entitycloth isEqualToString:@"Belt"]||[self.entitycloth isEqualToString:@"Eyeglass"]){
         self.TypeSelection.hidden=YES;
         self.typeLabel.hidden=YES;
+        self.needType=NO;
     }
+   
    
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -126,10 +127,8 @@
                        otherButtonTitles:@"Photo Library",@"Take Photo", nil];
     [photoBtnActionSheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
     [photoBtnActionSheet showInView:[self.view window]];
-     NSLog(@"%@",self.TypeSelection.text);
 }
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    // NSLog(@"Action Sheet Button Index: %d",buttonIndex);
     if (buttonIndex == 0) {
         
         if ([UIImagePickerController isSourceTypeAvailable:
@@ -215,9 +214,7 @@ finishedSavingWithError:(NSError *)error
 #pragma save;
 - (IBAction)save:(id)sender {
     _brandname=_brandbutton.titleLabel.text;
-    NSLog(@"TEXT%@",_brandname);
-       if (_image.image!=nil&&![_name.text isEqualToString:@""]) {
-        NSLog(@"save");
+       if (_image.image!=nil&&![_name.text isEqualToString:@""]&&!([self.TypeSelection.text isEqualToString:@""]&&self.needType)&&!([_ratecons intValue]==0)&&![self.ColorSelection.text isEqualToString:@""]) {
            NSString *choice=_entitycloth;
            NSManagedObjectContext *moc=[kAppDelegate managedObjectContext];
         
@@ -239,7 +236,6 @@ finishedSavingWithError:(NSError *)error
            [newCloth setValue:_date forKey:@"addTime"];
     NSError *mocSaveError=nil;
     if ([moc save:&mocSaveError]) {
-        NSLog(@"Save completed successfully");
         
         [self performSegueWithIdentifier:@"backToMain" sender:self];
     }
@@ -251,7 +247,7 @@ finishedSavingWithError:(NSError *)error
 
     }
     else{
-    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Oops" message:@"lack of photo or name" delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Oops" message:@"Lack of Necessity(*)" delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
         [alert show];}
 
 }
@@ -268,7 +264,6 @@ finishedSavingWithError:(NSError *)error
         NSMutableArray *dataArray=[[NSMutableArray alloc] init];
         dataArray =[NSKeyedUnarchiver unarchiveObjectWithFile:p];
         if (dataArray!=nil) {
-            NSLog(@"%@",[dataArray objectAtIndex:0]);
             _mailId=[dataArray objectAtIndex:0];
         }
     }
@@ -294,7 +289,6 @@ finishedSavingWithError:(NSError *)error
 #pragma keyboard;
 -(void) textViewDidBeginEditing:(UITextView *)textView
 {
-    NSLog(@"111");
     textView.text=nil;
     CGRect frame = textView.frame;
     int offset = frame.origin.y + 80 - (self.view.frame.size.height - 216.0);
@@ -339,11 +333,7 @@ finishedSavingWithError:(NSError *)error
 {
     if ([[segue identifier] isEqualToString:@"toBrand"]) {
         BrandViewController *brandco=(BrandViewController *)[segue destinationViewController];
-      
-        NSLog(@"%@",_brandbutton.titleLabel.text);
-        
         brandco.label=_brandbutton.titleLabel.text;
-         NSLog(@"%@",brandco.label);
     }
 }
 - (IBAction)unwindToThisViewController:(UIStoryboardSegue *)unwindSegue {}

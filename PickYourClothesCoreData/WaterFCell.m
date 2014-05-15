@@ -42,7 +42,6 @@
 }
 - (void)imageViewTapped:(UITapGestureRecognizer *)sender
 {
-    NSLog(@"22");
     [self.delegate drawdetailpic:_cloth];
     
     

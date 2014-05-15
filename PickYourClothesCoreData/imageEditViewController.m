@@ -60,7 +60,6 @@
     [photoBtnActionSheet showInView:[self.view window]];
 }
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    // NSLog(@"Action Sheet Button Index: %d",buttonIndex);
     if (buttonIndex == 0) {
         //Show Photo Library
         if ([UIImagePickerController isSourceTypeAvailable:
@@ -124,7 +123,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"%i",buttonIndex);
     switch (buttonIndex) {
         case 0:
             [self.navigationController popViewControllerAnimated:YES];
@@ -133,7 +131,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             
         case 1:
             if (_imageView!=nil) {
-                NSLog(@"2");
                 NSData *image=UIImageJPEGRepresentation(_imageView.image, 1);
                 [self.delegate changeImage:image];
                 [self.navigationController popViewControllerAnimated:YES];

@@ -36,7 +36,6 @@
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"%i",buttonIndex);
     switch (buttonIndex) {
         case 0:
             [self.navigationController popViewControllerAnimated:YES];

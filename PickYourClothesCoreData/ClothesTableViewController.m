@@ -142,13 +142,6 @@ enum month{
         }else{
             cloth=nil;
         }
-        
-       
-    
-        
-       NSLog(@"clothname%@",cloth.name);
-          // NSData *image=cloth.image;
-          //cellsearch.image.image=[UIImage imageWithData:image];
             cellsearch.name.text=cloth.name;
        // cellsearch.describe.text=cloth.describe;
             
@@ -202,7 +195,6 @@ enum month{
        cell.image.image=[UIImage imageWithData:image];
         
         NSArray *clothes=[self.fetchedResultsController fetchedObjects];
-        NSLog(@"%i",[clothes count]);
 
       return  cell;
     }
@@ -244,12 +236,10 @@ enum month{
        if (![scope isEqualToString:@"Jacketing"]&&![scope isEqualToString:@"Pants"]&&![scope isEqualToString:@"Shoes"]) {
         NSPredicate *predicate=[NSPredicate predicateWithFormat:@"name contains[c] %@",searchText];
         [fetchRequest setPredicate:predicate];
-        NSLog(@"else:%@",scope);
     }else {
         NSPredicate *predicate=[NSPredicate predicateWithFormat:@"kindOf =%@ AND name contains[c] %@",scope,searchText];
         [fetchRequest setPredicate:predicate];
-        NSLog(@"%@",scope);
-    }
+}
     
     NSFetchedResultsController *aFetched=[[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:moc sectionNameKeyPath:@"name" cacheName:nil];
     aFetched.delegate=self;
@@ -297,11 +287,6 @@ enum month{
     }
     if ([self.searchDisplayController isActive]) {
       NSIndexPath *indexpath=[self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-//        
-//        Clothes *cloth=[_fetchrearch objectAtIndexPath:indexpath];
-        
-        NSLog(@"%@",indexpath);
-//        _clothpara=[_fetchrearch objectAtInexPath:indexpath];
         Clothes *cloth=[[self fetchrearch] objectAtIndexPath:indexpath];
         ShowDetailViewController *moredetai=(ShowDetailViewController *)[segue destinationViewController];
         
@@ -481,7 +466,6 @@ enum month{
         NSMutableArray *dataArray=[[NSMutableArray alloc] init];
         dataArray =[NSKeyedUnarchiver unarchiveObjectWithFile:p];
         if (dataArray!=nil) {
-            NSLog(@"%@",[dataArray objectAtIndex:0]);
             _mailId=[dataArray objectAtIndex:0];
         }
     }

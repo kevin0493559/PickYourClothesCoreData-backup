@@ -99,6 +99,7 @@
 		78FF144918F37CA200EBC87F /* foregroundStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78FF144318F37CA200EBC87F /* foregroundStar@2x.png */; };
 		78FF144A18F37CA200EBC87F /* TQStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78FF144518F37CA200EBC87F /* TQStarRatingView.m */; };
 		78FF144D18F385B100EBC87F /* viewStarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78FF144C18F385B100EBC87F /* viewStarViewController.m */; };
+		CC495BD71923BBC1008FCE78 /* HJScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC495BD61923BBC1008FCE78 /* HJScrollView.m */; };
 		CC7F97E1190C364F00BE850C /* SearchInternet.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7F97E0190C364F00BE850C /* SearchInternet.m */; };
 		CC7F97E4190C3CE100BE850C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC7F97E3190C3CE100BE850C /* Images.xcassets */; };
 		CCCC8AD31901882F007E9E19 /* WXClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCC8ACC1901882F007E9E19 /* WXClient.m */; };
@@ -261,6 +262,8 @@
 		78FF144518F37CA200EBC87F /* TQStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TQStarRatingView.m; path = ../TQStarRatingView.m; sourceTree = "<group>"; };
 		78FF144B18F385B100EBC87F /* viewStarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewStarViewController.h; sourceTree = "<group>"; };
 		78FF144C18F385B100EBC87F /* viewStarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewStarViewController.m; sourceTree = "<group>"; };
+		CC495BD51923BBC1008FCE78 /* HJScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJScrollView.h; sourceTree = "<group>"; };
+		CC495BD61923BBC1008FCE78 /* HJScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJScrollView.m; sourceTree = "<group>"; };
 		CC7F97DF190C364F00BE850C /* SearchInternet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchInternet.h; sourceTree = "<group>"; };
 		CC7F97E0190C364F00BE850C /* SearchInternet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchInternet.m; sourceTree = "<group>"; };
 		CC7F97E3190C3CE100BE850C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -458,8 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				78FF143E18F37CA200EBC87F /* TQStarRating */,
-				787DB4BF18F098D400F96ECF /* PickYourClothesViewController.h */,
-				787DB4C018F098D400F96ECF /* PickYourClothesViewController.m */,
+				CC495BD41923BB8A008FCE78 /* MainView */,
 			);
 			name = "New Group";
 			sourceTree = "<group>";
@@ -484,6 +486,8 @@
 		787DB4BA18F0929000F96ECF /* model */ = {
 			isa = PBXGroup;
 			children = (
+				78ED8E7219187548009C3D5D /* Clothes.h */,
+				78ED8E7319187548009C3D5D /* Clothes.m */,
 				787DB49C18F0928400F96ECF /* Umbrella.h */,
 				787DB49D18F0928400F96ECF /* Umbrella.m */,
 				787DB4B718F0928400F96ECF /* Shoes.h */,
@@ -601,6 +605,17 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
+		CC495BD41923BB8A008FCE78 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				CC495BD51923BBC1008FCE78 /* HJScrollView.h */,
+				CC495BD61923BBC1008FCE78 /* HJScrollView.m */,
+				787DB4C018F098D400F96ECF /* PickYourClothesViewController.m */,
+				787DB4BF18F098D400F96ECF /* PickYourClothesViewController.h */,
+			);
+			name = MainView;
+			sourceTree = "<group>";
+		};
 		CC7F97E2190C365800BE850C /* Internet */ = {
 			isa = PBXGroup;
 			children = (
@@ -614,8 +629,6 @@
 			isa = PBXGroup;
 			children = (
 				CCCC8AD719018874007E9E19 /* WXClient.h */,
-				78ED8E7219187548009C3D5D /* Clothes.h */,
-				78ED8E7319187548009C3D5D /* Clothes.m */,
 				CCCC8ACC1901882F007E9E19 /* WXClient.m */,
 				CCCC8AD919018874007E9E19 /* WXDailyForecast.h */,
 				CCCC8ADA19018874007E9E19 /* WXDailyForecast.m */,
@@ -834,6 +847,7 @@
 				781ECAD219156D2800B71C7A /* WaterFallFooter.m in Sources */,
 				787DB50C18F1EB7300F96ECF /* ShowDetailViewController.m in Sources */,
 				787DB4BD18F095A400F96ECF /* CameraViewController.m in Sources */,
+				CC495BD71923BBC1008FCE78 /* HJScrollView.m in Sources */,
 				CC7F97E1190C364F00BE850C /* SearchInternet.m in Sources */,
 				784A727118EF888200AA746D /* PickYourClothesCoreDataAppDelegate.m in Sources */,
 				781ECAD419156D2800B71C7A /* WaterFCell.m in Sources */,

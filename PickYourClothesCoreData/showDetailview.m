@@ -26,7 +26,6 @@
 {
     [super awakeFromNib];
     
-    NSLog(@"ww");
     
     _wear=_cloth.onUse.boolValue;
     _image=[UIImage imageWithData:_cloth.image];
@@ -59,25 +58,7 @@
     
 }
 
-//- (void)imageViewTapped:(UITapGestureRecognizer *)sender
-//{
-//    if (_wear) {
-//        _wear=NO;
-//       UIImage *emptyCheckmark = [UIImage imageNamed:@"unchecked.png"];
-//        NSLog(@"uncheck");
-//       _cloth.onUse=[NSNumber numberWithBool:NO];
-//        _checkmarkView.image=emptyCheckmark;
-//        
-//        
-//    }else{
-//        _wear=YES;
-//        UIImage *emptyCheckmark = [UIImage imageNamed:@"checked.png"];
-//        _cloth.onUse=[NSNumber numberWithBool:YES];
-//        _cloth.name=@"change";
-//        _checkmarkView.image=emptyCheckmark;
-//    }
-//    //[self savecloth];
-//}
+
 -(void) savecloth {
     NSManagedObjectContext *context=kAppDelegate.managedObjectContext;
     NSError *error=nil;

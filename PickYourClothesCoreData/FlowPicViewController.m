@@ -34,24 +34,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+//    
     [self fetchpeople];
-    [self configurefetch];
-    NSArray *clothes=_clo;
-    _images=[[NSMutableArray alloc] init];
-    _text =[[NSMutableArray alloc] init];
-    for (int i=0; i<[clothes count]; i++) {
-         NSLog(@"num: %i",[clothes count]);
-        _cloth=clothes[i];
-        
-        NSData *image=_cloth.image;
-        
-        [self.images addObject:[UIImage imageWithData:image]];
-        
-        NSString *des=[NSString stringWithFormat:@"%@  Wear:%i times",_cloth.brand,[_cloth.useTime intValue]];
-        [_text addObject:des];
-    }
-    [self addWaterFollow];
+    self.view.backgroundColor=[UIColor clearColor];
+
 }
 -(void) viewDidAppear:(BOOL)animated
 {
@@ -60,18 +46,20 @@
     NSArray *clothes=_clo;
     _images=[[NSMutableArray alloc] init];
     _text =[[NSMutableArray alloc] init];
-    for (int i=0; i<[clothes count]; i++) {
-       
-        _cloth=clothes[i];
-        
-        NSData *image=_cloth.image;
-        
-        [self.images addObject:[UIImage imageWithData:image]];
-        //NSLog(@"%i",[_images count]);
-        NSString *des=[NSString stringWithFormat:@"%@  Wear:%i times",_cloth.brand,[_cloth.useTime intValue]];
-        [_text addObject:des];
+    if ([clothes count]!=0||clothes!=nil) {
+        for (int i=0; i<[clothes count]; i++) {
+            
+            _cloth=clothes[i];
+            
+            NSData *image=_cloth.image;
+            
+            [self.images addObject:[UIImage imageWithData:image]];
+            NSString *des=[NSString stringWithFormat:@"%@  Wear:%i times",_cloth.brand,[_cloth.useTime intValue]];
+            [_text addObject:des];
+        }
+
     }
-    [self addWaterFollow];
+        [self addWaterFollow];
 }
 - (void)addWaterFollow
 {
@@ -85,7 +73,6 @@
     self.collectView.imagewidth = 150;
     [self.collectView setDelegate:self];
     [self.view addSubview:self.collectView.view];
-    //NSLog(@"add %i",[self.images count]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,10 +82,10 @@
 }
 -(NSFetchedResultsController *) configurefetch
 {
-    if (_fetchrequestcontrol!=nil) {
-        return _fetchrequestcontrol;
-    }
-    else{
+//    if (_fetchrequestcontrol!=nil) {
+//        return _fetchrequestcontrol;
+//    }
+//    else{
         NSFetchRequest *request=[[NSFetchRequest alloc]init];
         NSManagedObjectContext *context=kAppDelegate.managedObjectContext;
         NSEntityDescription *entity=[NSEntityDescription entityForName:@"Clothes" inManagedObjectContext:context];
@@ -107,8 +94,6 @@
         [self setSelect:_selectcondition];
       
         [request setPredicate:_predicate];
-//        NSPredicate *pre=[NSPredicate predicateWithFormat:@"belong =%@",_peo];
-//        [request setPredicate:pre];
         NSArray *des=[NSArray arrayWithObjects:descript, nil];
         [request setSortDescriptors:des];
         
@@ -124,22 +109,20 @@
         _clo=[[NSMutableArray alloc] init];
        
         for (int i=0; i<[tem count]; i++) {
-            NSLog(@"%i",[tem count]);
           Clothes  *clothes=(Clothes *)[tem objectAtIndex:i];
             People *p=clothes.belong;
             if ([p isEqual: _peo]) {
-                NSLog(@"in");
                 [_clo addObject:clothes];
             }
-        }
+     }
         
         return _fetchrequestcontrol;
         
-    }
+   // }
     
 }
 -(void) setSelect:(NSString *)select
-{   NSLog(@"null: %@",_select);
+{
     if ([select isEqualToString:@"All"]) {
         _select=@"ALL";
         _predicate=nil;
@@ -147,7 +130,6 @@
     {
         _select=select;
         _predicate=[NSPredicate predicateWithFormat:@"kindOf = %@",self.select];
-         NSLog(@"jacketing: %@",_select);
     }else if ([select isEqualToString:@"Pants"])
     {
         _select=select;
@@ -194,7 +176,7 @@
 
 
 -(void) updatecollectview:(Clothes *)cloth;
-{   NSLog(@"maindelegate");
+{
     self.editcloth=cloth;
     [self.delegate setdetailflow:cloth];
     [self performSegueWithIdentifier:@"toDetail" sender:self];
@@ -211,7 +193,6 @@
     
 }
 -(void) navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
-    NSLog(@"testdelegat");
     flowshowdetailViewController *modal=(flowshowdetailViewController *)viewController;
    
     showDetailview *detail=[[showDetailview alloc] init];
@@ -235,15 +216,7 @@
     _cloth.landry=set;
 }
 #pragma change
-//-(void) controllerWillChangeContent:(NSFetchedResultsController *)controller
-//{
-//    NSLog(@"chang");
-//    [self.collectView reloadInputViews];
-//}
-//-(void) controllerDidChangeContent:(NSFetchedResultsController *)controller
-//{
-//    NSLog(@"didchange");
-//}
+
 -(void) takePeople{
     
     NSFileManager *manage=[NSFileManager defaultManager];
@@ -256,7 +229,6 @@
         NSMutableArray *dataArray=[[NSMutableArray alloc] init];
         dataArray =[NSKeyedUnarchiver unarchiveObjectWithFile:p];
         if (dataArray!=nil) {
-            NSLog(@"%@",[dataArray objectAtIndex:0]);
             _mailId=[dataArray objectAtIndex:0];
         }
     }

@@ -47,16 +47,13 @@
 */
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"%i",buttonIndex);
     switch (buttonIndex) {
         case 0:
             [self.navigationController popViewControllerAnimated:YES];
             break;
             
         case 1:
-            if (_brandseries!=nil) {
-                NSLog(@"2");
-                
+            if (_brandseries!=nil) {                
                 [self.delegate editBrandSeries:_brandseries.text];
                 [self.navigationController popViewControllerAnimated:YES];
             }

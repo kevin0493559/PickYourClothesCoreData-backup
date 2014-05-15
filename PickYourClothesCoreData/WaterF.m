@@ -102,7 +102,6 @@
 {
     
     self.index=indexPath;
-    NSLog(@"row= %i,section = %i",indexPath.item,indexPath.section);
     
             
 }
@@ -110,7 +109,6 @@
 
 -(void) drawdetailpic:(Clothes *)cloth
 {
-    //NSLog(@"delegate11%@",self.index);
     
     [self.delegate updatecollectview:cloth];
     
