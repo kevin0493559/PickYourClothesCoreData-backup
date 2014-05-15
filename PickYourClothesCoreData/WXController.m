@@ -69,8 +69,8 @@
     CGFloat temperatureHeight = 110;
     CGFloat hiloHeight = 40;
     CGFloat iconHeight = 80;
-    CGRect hiloFrame = CGRectMake(inset, headerFrame.size.height - hiloHeight-150, self.view.bounds.size.width/2, hiloHeight);
-    CGRect temperatureFrame = CGRectMake(inset, headerFrame.size.height - temperatureHeight - hiloHeight-150,self.view.bounds.size.width/2, temperatureHeight);
+    CGRect hiloFrame = CGRectMake(inset, headerFrame.size.height - hiloHeight-self.view.bounds.size.height/568*150, self.view.bounds.size.width/2, hiloHeight);
+    CGRect temperatureFrame = CGRectMake(inset, headerFrame.size.height - temperatureHeight - hiloHeight-self.view.bounds.size.height/568*150,self.view.bounds.size.width/2, temperatureHeight);
     CGRect iconFrame = CGRectMake(inset, temperatureFrame.origin.y - iconHeight, iconHeight, iconHeight);
     CGRect conditionsFrame = iconFrame;
     // make the conditions text a little smaller than the view
@@ -99,7 +99,7 @@
     [header addSubview:self.hiloLabel];
     
     // top
-    self.cityLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, self.view.bounds.size.width, 30)];
+    self.cityLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height/568*100, self.view.bounds.size.width, 30)];
     self.cityLabel.backgroundColor = [UIColor clearColor];
     self.cityLabel.textColor = [UIColor whiteColor];
     self.cityLabel.text = @"Loading...";

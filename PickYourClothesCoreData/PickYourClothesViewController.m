@@ -244,7 +244,7 @@
     }
     
     scrollView = [[HJScrollView alloc]init];
-    scrollView.frame = CGRectMake(20, 150, 280, 200);
+    scrollView.frame = CGRectMake(20, self.view.frame.size.height/4.8, 280, self.view.frame.size.height/2.4);
     scrollView.pagingEnabled = YES;
     scrollView.backgroundColor = [UIColor clearColor];
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width*numberOfPages, scrollView.frame.size.height);
@@ -252,7 +252,7 @@
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
     pageControl = [[UIPageControl alloc]init];
-    pageControl.frame = CGRectMake(20, 340, 280, 36);
+    pageControl.frame = CGRectMake(20, self.view.frame.size.height/4.8+self.view.frame.size.height/2.4, 280, 36);
     pageControl.currentPage = currnetPage;
     pageControl.numberOfPages = numberOfPages;
     //clothesImage.image=nil;
@@ -261,7 +261,7 @@
 //        frame1.origin.x = scrollView.frame.size.width*i;
 //        frame1.origin.y = 0;
 //        frame1.size = scrollView.frame.size;
-        frame1=CGRectMake(scrollView.frame.size.width*i, 0, 140, 200);
+        frame1=CGRectMake(scrollView.frame.size.width*i, 0, 140, self.view.frame.size.height/2.4);
         
         clothesImage=[[UIImageView alloc]initWithFrame:frame1];
         clothesImage.layer.cornerRadius=20;
@@ -280,7 +280,7 @@
         clothesImage = nil;
         
         CGRect frame2;
-        frame2=CGRectMake(scrollView.frame.size.width*i+140, 0, 140, 200);
+        frame2=CGRectMake(scrollView.frame.size.width*i+140, 0, 140, self.view.frame.size.height/2.4);
         pantsImage=[[UIImageView alloc]initWithFrame:frame2];
         pantsImage.layer.cornerRadius=20;
         pantsImage.backgroundColor=[UIColor clearColor];

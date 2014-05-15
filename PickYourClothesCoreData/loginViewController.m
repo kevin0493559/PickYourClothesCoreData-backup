@@ -20,7 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"%f",self.view.frame.size.height);
     _imageback.layer.cornerRadius=20;
     _imageback.layer.masksToBounds=YES;
     _imageback.layer.borderWidth=2;
