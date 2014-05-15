@@ -267,7 +267,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="e5V-uV-34G">
-                            <rect key="frame" x="0.0" y="551" width="320" height="126"/>
+                            <rect key="frame" x="0.0" y="487" width="320" height="126"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Up0-F2-dN4">
@@ -289,7 +289,7 @@
                             <tableViewSection headerTitle="" id="KIF-VZ-U5f">
                                 <cells>
                                     <tableViewCell alpha="0.49999999999999961" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="155" id="4Vl-Lr-qyh">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="155"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Vl-Lr-qyh" id="H3d-Br-SCn">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
@@ -324,7 +324,7 @@
                             <tableViewSection headerTitle="" id="CpE-Ta-wWh">
                                 <cells>
                                     <tableViewCell alpha="0.49999999999999961" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="JxR-yQ-W1I">
-                                        <rect key="frame" x="0.0" y="219" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="155" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JxR-yQ-W1I" id="wkn-w0-75h">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -350,7 +350,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" editingAccessoryType="disclosureIndicator" id="QTt-PR-Pzt">
-                                        <rect key="frame" x="0.0" y="263" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="199" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QTt-PR-Pzt" id="5Gk-HV-d6h">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -372,7 +372,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell alpha="0.49999999999999961" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Jqe-qT-hgQ">
-                                        <rect key="frame" x="0.0" y="307" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="243" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jqe-qT-hgQ" id="8gJ-7h-f46">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -398,7 +398,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="48" id="Hf3-qj-G73">
-                                        <rect key="frame" x="0.0" y="351" width="320" height="48"/>
+                                        <rect key="frame" x="0.0" y="287" width="320" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hf3-qj-G73" id="PBs-ig-rJO">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
@@ -427,7 +427,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="cellStar" rowHeight="77" id="cJd-0e-3VR">
-                                        <rect key="frame" x="0.0" y="399" width="320" height="77"/>
+                                        <rect key="frame" x="0.0" y="335" width="320" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cJd-0e-3VR" id="UXt-2c-MMZ">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="76"/>
@@ -453,7 +453,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="75" id="rWF-b8-pqy">
-                                        <rect key="frame" x="0.0" y="476" width="320" height="75"/>
+                                        <rect key="frame" x="0.0" y="412" width="320" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rWF-b8-pqy" id="Uy6-9v-4VN">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="74"/>
@@ -591,7 +591,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2T2-Od-FFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3613" y="1299"/>
+            <point key="canvasLocation" x="3613" y="1334"/>
         </scene>
         <!--Describe Edit View Controller - Description-->
         <scene sceneID="mg2-oA-1PV">
@@ -738,11 +738,11 @@
             </objects>
             <point key="canvasLocation" x="-1687" y="-23"/>
         </scene>
-        <!--Navigation Controller - Wardrobe-->
+        <!--Navigation Controller - Edit-->
         <scene sceneID="dx0-c4-Z1b">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Yvb-B2-L66" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Wardrobe" image="wardrobe-32" id="vVx-9n-kKY"/>
+                    <tabBarItem key="tabBarItem" title="Edit" image="edit_file-32" id="vVx-9n-kKY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gt5-i1-LeA">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -763,7 +763,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Search by name" showsScopeBar="YES" id="ZtK-ch-rtR">
-                            <rect key="frame" x="0.0" y="64" width="320" height="88"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <scopeButtonTitles>
@@ -778,7 +778,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="search" textLabel="DL3-YR-oef" rowHeight="41" style="IBUITableViewCellStyleDefault" id="4Fu-vn-uNN" customClass="searchTableViewCell">
-                                <rect key="frame" x="0.0" y="174" width="320" height="41"/>
+                                <rect key="frame" x="0.0" y="110" width="320" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Fu-vn-uNN" id="iJ4-SH-NyU">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="40"/>
@@ -799,7 +799,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Celler" rowHeight="296" id="XmS-yQ-nSq" customClass="PickYourClothesCoreDataTableViewCell">
-                                <rect key="frame" x="0.0" y="215" width="320" height="296"/>
+                                <rect key="frame" x="0.0" y="151" width="320" height="296"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XmS-yQ-nSq" id="D1X-nu-QTf">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="295"/>
@@ -1459,7 +1459,7 @@
             </objects>
             <point key="canvasLocation" x="-1082" y="-1259"/>
         </scene>
-        <!--Flow Pic View Controller - Laundry-->
+        <!--Flow Pic View Controller - Wardrobe-->
         <scene sceneID="ami-z2-IHo">
             <objects>
                 <viewController id="5h8-Zf-sYI" customClass="FlowPicViewController" sceneMemberID="viewController">
@@ -1478,7 +1478,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Laundry" id="p4k-GG-FG3">
+                    <navigationItem key="navigationItem" title="Wardrobe" id="p4k-GG-FG3">
                         <barButtonItem key="rightBarButtonItem" title="Pick" id="G2k-Xx-x7p">
                             <connections>
                                 <action selector="pick:" destination="5h8-Zf-sYI" id="ISa-3O-5dL"/>
@@ -1582,7 +1582,7 @@
             </objects>
             <point key="canvasLocation" x="459" y="2173"/>
         </scene>
-        <!--Flow Table View Controller - Clothes-->
+        <!--Flow Table View Controller - PYC-->
         <scene sceneID="qnU-Xt-nRG">
             <objects>
                 <tableViewController id="13A-NQ-sow" customClass="flowTableViewController" sceneMemberID="viewController">
@@ -1592,7 +1592,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="flowcell" id="QEO-rm-4UB" customClass="flowcellTableViewCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QEO-rm-4UB" id="X2s-L6-lmS">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -1618,17 +1618,17 @@
                             <outlet property="delegate" destination="13A-NQ-sow" id="Cdl-2W-XpQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Clothes" id="AU6-W1-9c4"/>
+                    <navigationItem key="navigationItem" title="PYC" id="AU6-W1-9c4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXk-Q9-Dsc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-541" y="1115"/>
         </scene>
-        <!--Navigation Controller - Laundry-->
+        <!--Navigation Controller - Wardrobe-->
         <scene sceneID="oKv-70-Wau">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RNa-ff-6Ji" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Laundry" image="washing_machine-32" id="xtg-Ym-9jg"/>
+                    <tabBarItem key="tabBarItem" title="Wardrobe" image="wardrobe-32" id="xtg-Ym-9jg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BnF-Qq-f1a">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1947,6 +1947,7 @@
         <image name="arrow-big-01" width="512" height="512"/>
         <image name="arrow-big-02" width="512" height="512"/>
         <image name="cancel-512" width="512" height="512"/>
+        <image name="edit_file-32" width="32" height="32"/>
         <image name="head.png" width="256" height="256"/>
         <image name="new1.jpg" width="640" height="1136"/>
         <image name="new3.jpg" width="640" height="960"/>
@@ -1956,7 +1957,6 @@
         <image name="search-32" width="32" height="32"/>
         <image name="starfish-32" width="32" height="32"/>
         <image name="wardrobe-32" width="32" height="32"/>
-        <image name="washing_machine-32" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -1965,7 +1965,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="QLi-4g-mb4"/>
-        <segue reference="ct9-87-z77"/>
+        <segue reference="3a7-71-AE9"/>
         <segue reference="zDO-0n-PgW"/>
     </inferredMetricsTieBreakers>
 </document>
